@@ -25,7 +25,7 @@ function calculate(obj, buttonName) {
 
     if (isNumber(buttonName)) {
         if (buttonName === '0' && obj.next === '0') {
-            return {};
+          return {};
         }
 
         if (obj.operation) {

@@ -8,8 +8,16 @@ import Button from '../components/Button/Button';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Button />', () => {
+  const wrapper = shallow(<Button name='hello world' clickHandler={() => {wrapper.setProps({name:'hello'})}}/>);
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  it ('should return one child node, which is the button html element.', () => {
+    expect(wrapper).toHaveLength(1);
+  })
+  it ('simulate a click that changes the prop "name" to hello', () => {
+    wrapper.find('button').simulate('click')
+    expect(wrapper.instance().props.name).toBe('hello');
+  })
 });
