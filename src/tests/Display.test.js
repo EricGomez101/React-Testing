@@ -12,4 +12,8 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  it ('should change state from the default value', () => {
+    const wrapper = shallow(<Display value='234'/>)
+    expect(wrapper.find('div').last().text()).toBe('234')
+  })
 });

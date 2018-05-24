@@ -12,4 +12,8 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+  it ('should map through all buttons', () => {
+    const wrapper = shallow(<Panel />)
+    wrapper.find('div.component-panel').children().map((a) => { a.children().map((a) => { expect(a.props().name).not.toBe('')})});
+  })
 });

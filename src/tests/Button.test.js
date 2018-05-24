@@ -17,6 +17,7 @@ describe('<Button />', () => {
     expect(wrapper).toHaveLength(1);
   })
   it ('simulate a click that changes the prop "name" to hello', () => {
+    expect(wrapper.instance().props.name).toBe('hello world');
     wrapper.find('button').simulate('click')
     expect(wrapper.instance().props.name).toBe('hello');
   })
